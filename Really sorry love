@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Really Sorry, Babby 🥺❤️ | Happy Children's Day</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Dancing Script / Pacifico for romantic cursive & Quicksand for soft rounded readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cursive: ['"Dancing Script"', 'cursive'],
+            sans: ['"Quicksand"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FFF9F5',
+            blush: '#FFE4EC',
+            roseSoft: '#FF85A1',
+            roseDeep: '#E63968',
+            choco: '#4A2511',
+            chocoLight: '#7B4326',
+            kinderOrange: '#FF6B1A',
+            kinderBlue: '#0077C8',
+            goldSoft: '#FFD166',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Custom soft animations and decorative styles */
+    body {
+      background: linear-gradient(135deg, #FFF9F5 0%, #FFE8EF 50%, #FFF2E6 100%);
+      color: #4A2511;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Floating background elements */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.8) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.75;
+      }
+      85% {
+        opacity: 0.75;
+      }
+      100% {
+        transform: translateY(-15vh) scale(1.15) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    .floating-item {
+      position: fixed;
+      bottom: -50px;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatUp linear infinite;
+    }
+
+    /* Gentle wiggle for the unopened Kinder Joy egg */
+    @keyframes eggWiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-6deg) scale(1.03); }
+      40% { transform: rotate(6deg) scale(1.03); }
+      60% { transform: rotate(-4deg) scale(1.02); }
+      80% { transform: rotate(4deg) scale(1.02); }
+    }
+
+    .egg-wiggle {
+      animation: eggWiggle 2.2s ease-in-out infinite;
+    }
+
+    .egg-wiggle:hover {
+      animation: eggWiggle 0.6s ease-in-out infinite;
+    }
+
+    /* Pop-in animation for cracked Kinder Joy halves & modals */
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.75) translateY(15px);
+      }
+      70% {
+        transform: scale(1.04) translateY(-3px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .animate-pop-in {
+      animation: popIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Soft heartbeat */
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.14); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.14); }
+    }
+
+    .animate-heartbeat {
+      display: inline-block;
+      animation: heartbeat 1.6s infinite;
+    }
+
+    /* Paper note texture effect */
+    .love-letter-card {
+      background-color: #ffffff;
+      background-image: radial-gradient(#ffd6e0 0.75px, transparent 0.75px), radial-gradient(#ffd6e0 0.75px, #ffffff 0.75px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* Chocolate piece hover lift */
+    .choco-piece {
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+    }
+    .choco-piece:hover {
+      transform: translateY(-6px) scale(1.04);
+    }
+    .choco-piece:active {
+      transform: scale(0.96);
+    }
+
+    /* Confetti canvas overlay */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-roseSoft selection:text-white">
+
+  <!-- Confetti & Heart Rain Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Background Hearts & Treats Container -->
+  <div id="floating-bg" aria-hidden="true"></div>
+
+  <!-- Main Content Wrapper -->
+  <main class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+
+    <!-- 1. HERO SECTION -->
+    <header class="text-center space-y-4 pt-2 sm:pt-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-pink-200 shadow-sm text-xs sm:text-sm font-semibold text-roseDeep">
+        <span>14th November • Happy Children's Day</span>
+        <span class="animate-heartbeat">🧸</span>
+      </div>
+
+      <h1 class="font-cursive text-4xl sm:text-6xl md:text-7xl font-bold text-choco leading-tight drop-shadow-sm">
+        I'm Really Sorry, <span class="text-roseDeep">Babby</span> 🥺<span class="animate-heartbeat">❤️</span>
+      </h1>
+
+      <p class="text-base sm:text-lg md:text-xl text-chocoLight font-medium max-w-xl mx-auto leading-relaxed">
+        Happy Children's Day to the cutest, sweetest, and most precious little kid in my heart forever...
+      </p>
+
+      <!-- Cute Couple / Puppy Eyes Illustration Card -->
+      <div class="pt-2 flex justify-center">
+        <div class="bg-white/85 backdrop-blur-md border border-pink-200/80 rounded-3xl px-6 py-4 shadow-md inline-flex items-center gap-4">
+          <!-- Custom Cute Pleading Bear SVG -->
+          <svg class="w-16 h-16 sm:w-20 sm:h-20 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ears -->
+            <circle cx="30" cy="34" r="16" fill="#8D5524"/>
+            <circle cx="30" cy="34" r="9" fill="#E0AC69"/>
+            <circle cx="90" cy="34" r="16" fill="#8D5524"/>
+            <circle cx="90" cy="34" r="9" fill="#E0AC69"/>
+            <!-- Head -->
+            <ellipse cx="60" cy="64" rx="42" ry="38" fill="#A46632"/>
+            <!-- Snout -->
+            <ellipse cx="60" cy="74" rx="18" ry="14" fill="#F5CBA7"/>
+            <ellipse cx="60" cy="68" rx="6" ry="4.5" fill="#4A2511"/>
+            <!-- Sad/Cute Mouth -->
+            <path d="M53 80 Q60 75 67 80" stroke="#4A2511" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- Big Pleading Eyes -->
+            <circle cx="43" cy="57" r="7" fill="#2B1408"/>
+            <circle cx="41" cy="54.5" r="2.5" fill="#FFFFFF"/>
+            <circle cx="45" cy="59" r="1.2" fill="#FFFFFF"/>
+            <circle cx="77" cy="57" r="7" fill="#2B1408"/>
+            <circle cx="75" cy="54.5" r="2.5" fill="#FFFFFF"/>
+            <circle cx="79" cy="59" r="1.2" fill="#FFFFFF"/>
+            <!-- Worried Eyebrows -->
+            <path d="M35 46 L48 49" stroke="#4A2511" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M85 46 L72 49" stroke="#4A2511" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Blush Cheeks -->
+            <ellipse cx="32" cy="68" rx="6" ry="3.5" fill="#FF85A1" opacity="0.75"/>
+            <ellipse cx="88" cy="68" rx="6" ry="3.5" fill="#FF85A1" opacity="0.75"/>
+            <!-- Holding Heart -->
+            <path d="M60 112 C60 112 42 100 42 89 C42 83 47 79 52 79 C56 79 59 82 60 84 C61 82 64 79 68 79 C73 79 78 83 78 89 C78 100 60 112 60 112 Z" fill="#E63968"/>
+          </svg>
+          <div class="text-left">
+            <p class="text-xs uppercase tracking-wider font-bold text-roseDeep">From your budhu</p>
+            <p class="text-sm sm:text-base font-semibold text-choco">
+              "Kaan pakad ke sorry babby! Aaj chocolates & Kinder Joy miss ho gaya, par mera pyaar kabhi miss nahi hota."
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HEARTFELT APOLOGY LETTER CARD -->
+    <section aria-labelledby="apology-heading" class="relative">
+      <div class="love-letter-card rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-pink-200/90 relative overflow-hidden">
+        <!-- Decorative Top Ribbon -->
+        <div class="flex items-center justify-between border-b border-pink-200 pb-4 mb-6">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-roseSoft"></span>
+            <span class="w-3 h-3 rounded-full bg-goldSoft"></span>
+            <span class="w-3 h-3 rounded-full bg-kinderOrange"></span>
+            <span id="apology-heading" class="ml-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-roseDeep">
+              Dil Se Ek Chhota Sa Khat 💌
+            </span>
+          </div>
+          <span class="text-xs font-semibold text-chocoLight bg-pink-50 px-3 py-1 rounded-full border border-pink-100">
+            For My Love ❤️
+          </span>
+        </div>
+
+        <!-- Handwritten / Emotional Core Message -->
+        <div class="space-y-5 text-choco leading-relaxed">
+          <p class="font-cursive text-3xl sm:text-4xl text-roseDeep">
+            Meri Pyaari Babby,
+          </p>
+
+          <blockquote class="bg-pink-50/90 border-l-4 border-roseDeep rounded-2xl p-5 sm:p-6 text-base sm:text-lg font-semibold text-choco shadow-inner">
+            “Really sorry babby... Vo hame laga ki ye Children's Day wali cheez aise hi thi. Agar thoda sa bhi idea hota ki tumhe accha nahi lagega, toh aisi harkat bilkul nahi karte. <span class="text-roseDeep underline decoration-wavy decoration-pink-300">Really sorryyy babby!</span> 🥺❤️”
+          </blockquote>
+
+          <p class="text-sm sm:text-base text-chocoLight font-medium">
+            Sach kahun toh mujhe bilkul andaza nahi tha ki tum is din ko lekar itna special feel karti ho, ya tumhe chocolates aur Kinder Joy ka wait hoga. Tumhare chehre ki ek chhoti si udasi bhi mujhse bardasht nahi hoti.
+          </p>
+
+          <p class="text-sm sm:text-base text-chocoLight font-medium">
+            Mere liye toh tum har din meri sabse cute, sabse pyaari <strong class="text-choco">chhoti si bacchi</strong> ho — jise bina maange duniya ki saari chocolates, Kinder Joy, aur dher saara pampering milna chahiye. Aaj ki galti ke liye dil se sorry meri jaan!
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-pink-100">
+            <div>
+              <p class="text-xs text-chocoLight">Hamesha tumhara,</p>
+              <p class="font-cursive text-2xl sm:text-3xl text-choco font-bold">Tumhara Budhu ❤️🍫</p>
+            </div>
+            <a href="#virtual-treats" class="inline-flex items-center gap-2 bg-gradient-to-r from-roseDeep to-pink-500 hover:from-pink-600 hover:to-roseDeep text-white font-bold text-sm px-5 py-3 rounded-2xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+              <span>Open Your Surprise Treats</span>
+              <span>🎁</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE VIRTUAL KINDER JOY & CHOCOLATE BOX -->
+    <section id="virtual-treats" class="space-y-10">
+      <div class="text-center space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
+          Special Children's Day Delivery 🚚💨
+        </span>
+        <h2 class="font-cursive text-3xl sm:text-5xl font-bold text-choco">
+          Jab Tak Real Wali Nahi Aati, Ye Khao! 🍫🥚
+        </h2>
+        <p class="text-sm sm:text-base text-chocoLight max-w-lg mx-auto">
+          Tap on the <strong class="text-kinderOrange">Kinder Joy Egg</strong> to crack it open, and click each <strong class="text-choco">Chocolate</strong> to read a secret note!
+        </p>
+      </div>
+
+      <!-- 3A. INTERACTIVE KINDER JOY EGG -->
+      <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-orange-200/80 text-center">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <span class="px-3 py-1 rounded-full bg-orange-100 text-kinderOrange font-bold text-xs uppercase tracking-wider">
+            Special Surprise Inside ✨
+          </span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-choco mb-1">
+          Babby's Magical Kinder Joy Egg
+        </h3>
+        <p id="kinder-instruction" class="text-xs sm:text-sm text-chocoLight mb-6">
+          Tap the egg below to crack it open! 👇
+        </p>
+
+        <!-- Unopened Kinder Joy Egg Button -->
+        <div id="kinder-unopened-container" class="flex flex-col items-center justify-center py-4">
+          <button
+            id="crack-kinder-btn"
+            type="button"
+            aria-label="Tap to crack open Kinder Joy egg"
+            class="egg-wiggle group relative focus:outline-none cursor-pointer p-3 rounded-full"
+          >
+            <!-- Custom SVG Kinder Joy Egg -->
+            <svg class="w-44 h-56 sm:w-52 sm:h-64 drop-shadow-xl transition-transform duration-300 group-active:scale-95" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="eggShell" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF"/>
+                  <stop offset="52%" stop-color="#FFFDFB"/>
+                  <stop offset="53%" stop-color="#FF6B1A"/>
+                  <stop offset="100%" stop-color="#E84E0F"/>
+                </linearGradient>
+                <linearGradient id="milkSplash" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFF5E6"/>
+                  <stop offset="100%" stop-color="#FFE0B2"/>
+                </linearGradient>
+              </defs>
+              <!-- Main Egg Shape -->
+              <path d="M100 12 C152 12 184 85 184 152 C184 206 148 238 100 238 C52 238 16 206 16 152 C16 85 48 12 100 12 Z" fill="url(#eggShell)" stroke="#F3D5C0" stroke-width="3"/>
+              <!-- Wavy Divider -->
+              <path d="M17 136 Q55 120 100 136 T183 136 L183 152 Q145 138 100 152 T17 152 Z" fill="#FF8C42" opacity="0.4"/>
+              <!-- Kinder Joy Branding Text -->
+              <text x="100" y="78" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="800" font-size="28" fill="#2B1408">Kinder</text>
+              <text x="100" y="112" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="800" font-size="32" fill="#0077C8">JOY</text>
+              <!-- Cute Heart Badge -->
+              <circle cx="100" cy="182" r="24" fill="#FFFFFF" opacity="0.95"/>
+              <path d="M100 194 C100 194 84 183 84 174 C84 169 88 166 92 166 C95 166 98 168 100 171 C102 168 105 166 108 166 C112 166 116 169 116 174 C116 183 100 194 100 194 Z" fill="#E63968"/>
+              <!-- Shine highlight -->
+              <ellipse cx="64" cy="56" rx="10" ry="24" transform="rotate(-22 64 56)" fill="#FFFFFF" opacity="0.65"/>
+            </svg>
+            <span class="mt-2 inline-block bg-kinderOrange text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-md group-hover:bg-orange-600 transition">
+              Tap to Crack Open! 💥
+            </span>
+          </button>
+        </div>
+
+        <!-- Cracked Open Two Halves (Hidden initially) -->
+        <div id="kinder-opened-container" class="hidden grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-left">
+          <!-- Left Half: Creamy Chocolate & Wafer Bites -->
+          <div class="animate-pop-in bg-gradient-to-b from-amber-50 to-orange-50 border-2 border-amber-200 rounded-3xl p-5 sm:p-6 shadow-md relative overflow-hidden">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-chocoLight bg-white px-3 py-1 rounded-full border border-amber-200">
+                Half 1 • Sweet Treat 🥄
+              </span>
+              <span class="text-xl">🍫</span>
+            </div>
+            <!-- SVG of Two Crispy Cocoa Wafer Balls in Milky Cream -->
+            <div class="flex justify-center my-3">
+              <svg class="w-36 h-24" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="80" cy="55" rx="72" ry="38" fill="#FFF8EE" stroke="#E6CCB2" stroke-width="3"/>
+                <path d="M22 58 Q80 82 138 58 Q125 84 80 84 Q35 84 22 58 Z" fill="#6F3718"/>
+                <!-- Wafer Ball 1 -->
+                <circle cx="56" cy="48" r="20" fill="#5C2C12"/>
+                <circle cx="56" cy="48" r="16" fill="#8C4A27"/>
+                <path d="M44 44 L68 44 M44 52 L68 52 M52 35 L52 61 M60 35 L60 61" stroke="#4A2511" stroke-width="1.5"/>
+                <!-- Wafer Ball 2 -->
+                <circle cx="104" cy="48" r="20" fill="#5C2C12"/>
+                <circle cx="104" cy="48" r="16" fill="#8C4A27"/>
+                <path d="M92 44 L116 44 M92 52 L116 52 M100 35 L100 61 M108 35 L108 61" stroke="#4A2511" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg text-choco mb-1">Creamy Milky & Cocoa Bites</h4>
+            <p class="text-xs sm:text-sm text-chocoLight leading-relaxed">
+              Just like Kinder Joy's double cream, tumhari har ek smile meri life mein double sweetness bhar deti hai. Ye virtual spoon tumhare liye babby! 😋
+            </p>
+          </div>
+
+          <!-- Right Half: Golden Surprise Toy & Real Voucher -->
+          <div class="animate-pop-in bg-gradient-to-b from-pink-50 to-rose-50 border-2 border-roseSoft rounded-3xl p-5 sm:p-6 shadow-md relative overflow-hidden" style="animation-delay: 0.12s;">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-roseDeep bg-white px-3 py-1 rounded-full border border-pink-200">
+                Half 2 • Surprise Toy 🎁
+              </span>
+              <span class="text-xl">🎟️</span>
+            </div>
+            <div class="bg-white/90 border border-dashed border-roseDeep rounded-2xl p-4 my-2 text-center space-y-1.5">
+              <p class="text-xs font-bold uppercase text-kinderOrange tracking-wider">Official Love Voucher</p>
+              <p class="text-base sm:text-lg font-extrabold text-choco">
+                3x Real Kinder Joy + Favourite Chocolates! 🍫🥚
+              </p>
+              <p class="text-xs text-chocoLight">
+                Valid: Immediately on our next meeting • No expiry • 100% Guaranteed by your Budhu!
+              </p>
+            </div>
+            <div class="pt-2 flex items-center justify-between">
+              <span class="text-xs font-semibold text-roseDeep">Status: Unlocked for Babby ❤️</span>
+              <button
+                id="reset-kinder-btn"
+                type="button"
+                class="text-xs font-bold text-chocoLight hover:text-choco underline cursor-pointer"
+              >
+                Crack Again ↻
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3B. INTERACTIVE ASSORTED CHOCOLATE BOX -->
+      <div class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-amber-900/15">
+        <div class="text-center mb-6">
+          <h3 class="text-xl sm:text-2xl font-bold text-choco">
+            Babby's Assorted Chocolate Box 💝
+          </h3>
+          <p class="text-xs sm:text-sm text-chocoLight mt-1">
+            Har chocolate pe tap karo — har piece mein tumhare liye ek pyaara sa message chhupa hai!
+          </p>
+        </div>
+
+        <!-- 4 Interactive Chocolates Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <!-- Chocolate 1 -->
+          <button
+            type="button"
+            data-choco-title="Dairy Milk Silk Bubbly 🫧"
+            data-choco-msg="Tumhari hasi bilkul Silk Bubbly jaisi hai — ek baar dekh lo toh saara din khushiyon se bhar jaata hai! Love you babby ❤️"
+            class="choco-btn choco-piece bg-gradient-to-br from-purple-700 to-indigo-900 text-white rounded-2xl p-4 shadow-md flex flex-col items-center justify-center text-center space-y-2 border-2 border-purple-400/40 cursor-pointer"
+          >
+            <span class="text-3xl sm:text-4xl">🍫</span>
+            <span class="font-bold text-xs sm:text-sm">Dairy Milk Silk</span>
+            <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full">Tap to unwrap</span>
+          </button>
+
+          <!-- Chocolate 2 -->
+          <button
+            type="button"
+            data-choco-title="Golden Ferrero Rocher ✨"
+            data-choco-msg="Duniya ki saari chocolates ek taraf, aur meri sabse precious 'Babby' ek taraf. Tum mere liye sabse anmol ho! 💛"
+            class="choco-btn choco-piece bg-gradient-to-br from-amber-500 to-yellow-700 text-white rounded-2xl p-4 shadow-md flex flex-col items-center justify-center text-center space-y-2 border-2 border-yellow-300/50 cursor-pointer"
+          >
+            <span class="text-3xl sm:text-4xl">🟡</span>
+            <span class="font-bold text-xs sm:text-sm">Ferrero Rocher</span>
+            <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full">Tap to unwrap</span>
+          </button>
+
+          <!-- Chocolate 3 -->
+          <button
+            type="button"
+            data-choco-title="Crispy KitKat Break ❤️"
+            data-choco-msg="Have a break from being gussa with me! Ek chhoti si smile de do jaan, tum gussa hoti ho toh mera dil ruk sa jaata hai 🥺"
+            class="choco-btn choco-piece bg-gradient-to-br from-red-600 to-rose-800 text-white rounded-2xl p-4 shadow-md flex flex-col items-center justify-center text-center space-y-2 border-2 border-red-300/40 cursor-pointer"
+          >
+            <span class="text-3xl sm:text-4xl"> wafer </span>
+            <span class="font-bold text-xs sm:text-sm">Sweet KitKat</span>
+            <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full">Tap to unwrap</span>
+          </button>
+
+          <!-- Chocolate 4 -->
+          <button
+            type="button"
+            data-choco-title="Dark Truffle Hug 🧸"
+            data-choco-msg="Happy Children's Day meri chhoti si shaitaan! Agli baar bina bole dher saari chocolates aur surprises milenge, pinki promise! 🤞❤️"
+            class="choco-btn choco-piece bg-gradient-to-br from-choco to-stone-900 text-white rounded-2xl p-4 shadow-md flex flex-col items-center justify-center text-center space-y-2 border-2 border-amber-700/40 cursor-pointer"
+          >
+            <span class="text-3xl sm:text-4xl">🍬</span>
+            <span class="font-bold text-xs sm:text-sm">Choco Truffle</span>
+            <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full">Tap to unwrap</span>
+          </button>
+        </div>
+
+        <!-- Revealed Chocolate Message Box -->
+        <div id="choco-reveal-box" class="mt-6 bg-cream border-2 border-pink-200 rounded-2xl p-5 text-center transition-all duration-300">
+          <p id="choco-reveal-title" class="font-bold text-base sm:text-lg text-roseDeep mb-1">
+            👆 Upar kisi bhi chocolate pe click karo babby!
+          </p>
+          <p id="choco-reveal-msg" class="text-xs sm:text-sm text-chocoLight">
+            Har ek chocolate mein tumhare liye ek pyaara sa note aur ek virtual hug hai.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE "DO YOU FORGIVE ME?" SECTION -->
+    <section aria-labelledby="forgive-heading" class="pb-10">
+      <div class="bg-gradient-to-br from-white via-pink-50 to-orange-50 rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-roseSoft/50 text-center space-y-6">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pink-100 text-3xl shadow-inner">
+          🥺
+        </div>
+
+        <div class="space-y-2">
+          <h2 id="forgive-heading" class="font-cursive text-3xl sm:text-5xl font-bold text-choco">
+            Kya Tumne Apne Budhu Ko Maaf Kiya?
+          </h2>
+          <p id="plead-subtext" class="text-sm sm:text-base text-chocoLight font-medium max-w-md mx-auto">
+            Sach-sach batana babby... abhi bhi thoda sa gussa ho ya maaf kar diya? ❤️
+          </p>
+        </div>
+
+        <!-- Interactive Yes / No Buttons -->
+        <div id="forgive-buttons-area" class="flex flex-wrap items-center justify-center gap-4 pt-2 min-h-[84px]">
+          <button
+            id="yes-forgive-btn"
+            type="button"
+            class="bg-gradient-to-r from-roseDeep to-pink-500 hover:from-pink-600 hover:to-roseDeep text-white font-bold px-7 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer text-base sm:text-lg"
+          >
+            Haan, Maaf Kiya ❤️
+          </button>
+
+          <button
+            id="no-forgive-btn"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-chocoLight font-semibold px-5 py-3 rounded-2xl border border-gray-300 shadow-sm transition-all duration-200 cursor-pointer text-sm sm:text-base"
+          >
+            Abhi Nahi 😤
+          </button>
+        </div>
+
+        <!-- Celebration State (Shown after clicking Yes) -->
+        <div id="forgiven-celebration" class="hidden animate-pop-in bg-white/95 border-2 border-roseDeep rounded-3xl p-6 sm:p-8 shadow-lg space-y-4">
+          <div class="text-4xl sm:text-5xl">🥳💖🍫🎉</div>
+          <h3 class="font-cursive text-3xl sm:text-4xl font-bold text-roseDeep">
+            Yayyy! Thank You Meri Jaan! ❤️
+          </h3>
+          <p class="text-sm sm:text-base text-choco font-medium max-w-lg mx-auto leading-relaxed">
+            Mujhe pata tha meri babby ka dil bahut bada aur pyaara hai! Ab jaldi se ek pyaari si smile bhej do, aur apni <strong class="text-kinderOrange">Kinder Joy & chocolates</strong> ki treat ke liye ready raho!
+          </p>
+
+          <!-- Copy Sweet Reply Button so she can easily send it back on WhatsApp/Instagram -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              id="copy-reply-btn"
+              type="button"
+              class="inline-flex items-center gap-2 bg-choco hover:bg-chocoLight text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-2xl shadow transition cursor-pointer"
+            >
+              <span>Copy Cute Reply to Send Him 💌</span>
+            </button>
+          </div>
+          <p id="copy-feedback" class="text-xs font-bold text-emerald-600 hidden">
+            Copied! Ab jaake chat mein paste karke bhej do 😘❤️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs sm:text-sm text-chocoLight/80 pb-6">
+      Made with 100% dil se sorry & infinite love just for <span class="font-bold text-roseDeep">Babby</span> ❤️
+    </footer>
+  </main>
+
+  <script>
+    // Fix KitKat emoji placeholder cleanly on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const kitkatCard = document.querySelectorAll('.choco-btn span:first-child')[2];
+      if (kitkatCard) kitkatCard.textContent = '🍓';
+    });
+
+    // 1. FLOATING BACKGROUND HEARTS & TREATS GENERATOR
+    (function initFloatingItems() {
+      const container = document.getElementById('floating-bg');
+      const emojis = ['❤️', '🍫', '🧸', '💖', '✨', '🍬', '🥺'];
+      const count = 16;
+
+      for (let i = 0; i < count; i++) {
+        const span = document.createElement('span');
+        span.className = 'floating-item select-none';
+        span.textContent = emojis[i % emojis.length];
+        span.style.left = Math.random() * 96 + 'vw';
+        span.style.fontSize = (16 + Math.random() * 16) + 'px';
+        span.style.animationDuration = (10 + Math.random() * 12) + 's';
+        span.style.animationDelay = (-Math.random() * 15) + 's';
+        container.appendChild(span);
+      }
+    })();
+
+    // 2. CONFETTI & HEART RAIN ENGINE (Pure Canvas, zero external dependencies)
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId = null;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function launchCelebrationBurst(amount = 90) {
+      const colors = ['#E63968', '#FF85A1', '#FF6B1A', '#FFD166', '#8D5524', '#FF4D6D'];
+      const shapes = ['heart', 'circle', 'rect'];
+
+      for (let i = 0; i < amount; i++) {
+        particles.push({
+          x: canvas.width * (0.2 + Math.random() * 0.6),
+          y: canvas.height * 0.55,
+          vx: (Math.random() - 0.5) * 14,
+          vy: -6 - Math.random() * 11,
+          size: 7 + Math.random() * 7,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          shape: shapes[Math.floor(Math.random() * shapes.length)],
+          rotation: Math.random() * Math.PI * 2,
+          vRot: (Math.random() - 0.5) * 0.2,
+          gravity: 0.28 + Math.random() * 0.1,
+          alpha: 1
+        });
+      }
+
+      if (!animationId) {
+        animateConfetti();
+      }
+    }
+
+    function drawHeart(ctx, x, y, size, color, rotation, alpha) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      const topCurveHeight = size * 0.3;
+      ctx.moveTo(0, topCurveHeight);
+      ctx.bezierCurveTo(0, 0, -size / 2, 0, -size / 2, topCurveHeight);
+      ctx.bezierCurveTo(-size / 2, (size + topCurveHeight) / 2, 0, (size + topCurveHeight) / 1.4, 0, size);
+      ctx.bezierCurveTo(0, (size + topCurveHeight) / 1.4, size / 2, (size + topCurveHeight) / 2, size / 2, topCurveHeight);
+      ctx.bezierCurveTo(size / 2, 0, 0, 0, 0, topCurveHeight);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.rotation += p.vRot;
+        p.alpha -= 0.008;
+
+        if (p.alpha > 0) {
+          if (p.shape === 'heart') {
+            drawHeart(ctx, p.x, p.y, p.size * 1.4, p.color, p.rotation, p.alpha);
+          } else if (p.shape === 'circle') {
+            ctx.save();
+            ctx.globalAlpha = p.alpha;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          } else {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation);
+            ctx.globalAlpha = p.alpha;
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+            ctx.restore();
+          }
+        }
+      });
+
+      particles = particles.filter((p) => p.alpha > 0 && p.y < canvas.height + 40);
+
+      if (particles.length > 0) {
+        animationId = requestAnimationFrame(animateConfetti);
+      } else {
+        animationId = null;
+      }
+    }
+
+    // 3. INTERACTIVE KINDER JOY CRACKING LOGIC
+    const crackBtn = document.getElementById('crack-kinder-btn');
+    const resetKinderBtn = document.getElementById('reset-kinder-btn');
+    const unopenedBox = document.getElementById('kinder-unopened-container');
+    const openedBox = document.getElementById('kinder-opened-container');
+    const kinderInstruction = document.getElementById('kinder-instruction');
+
+    crackBtn.addEventListener('click', () => {
+      unopenedBox.classList.add('hidden');
+      openedBox.classList.remove('hidden');
+      openedBox.classList.add('grid');
+      kinderInstruction.textContent = 'Woohoo! Surprise unlocked for my favourite kid! 🎉';
+      launchCelebrationBurst(65);
+    });
+
+    resetKinderBtn.addEventListener('click', () => {
+      openedBox.classList.add('hidden');
+      openedBox.classList.remove('grid');
+      unopenedBox.classList.remove('hidden');
+      kinderInstruction.textContent = 'Tap the egg below to crack it open! 👇';
+    });
+
+    // 4. INTERACTIVE CHOCOLATE BOX NOTES
+    const chocoButtons = document.querySelectorAll('.choco-btn');
+    const chocoTitleEl = document.getElementById('choco-reveal-title');
+    const chocoMsgEl = document.getElementById('choco-reveal-msg');
+    const chocoRevealBox = document.getElementById('choco-reveal-box');
+
+    chocoButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-choco-title');
+        const msg = btn.getAttribute('data-choco-msg');
+
+        chocoTitleEl.textContent = title;
+        chocoMsgEl.textContent = msg;
+
+        // Subtle highlight bounce
+        chocoRevealBox.classList.remove('scale-100');
+        chocoRevealBox.classList.add('scale-[1.02]', 'bg-pink-50', 'border-roseSoft');
+        setTimeout(() => {
+          chocoRevealBox.classList.remove('scale-[1.02]');
+        }, 220);
+
+        launchCelebrationBurst(25);
+      });
+    });
+
+    // 5. PLAYFUL "DO YOU FORGIVE ME?" GAME
+    const yesBtn = document.getElementById('yes-forgive-btn');
+    const noBtn = document.getElementById('no-forgive-btn');
+    const pleadSubtext = document.getElementById('plead-subtext');
+    const buttonsArea = document.getElementById('forgive-buttons-area');
+    const celebrationBox = document.getElementById('forgiven-celebration');
+
+    const pleadingMessages = [
+      'Please babbyyy, itna gussa mat raho 🥺❤️',
+      'Pakka 3 Kinder Joy aur tumhari fav chocolates dunga! 🍫🥚',
+      'Kaan pakad ke sorry jaan! Ab toh maan jao na 🙏💖',
+      'Dekho "Haan" wala button kitna bada ho gaya hai, uspe click karo! 😘',
+      'Meri cutest babby ho na tum? Maaf kar do pleasee 🥺✨'
+    ];
+
+    let noClickCount = 0;
+
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      const msgIndex = (noClickCount - 1) % pleadingMessages.length;
+      pleadSubtext.textContent = pleadingMessages[msgIndex];
+      pleadSubtext.classList.add('text-roseDeep', 'font-bold');
+
+      // Grow the "Yes" button playfully
+      const newScale = Math.min(1 + noClickCount * 0.14, 1.65);
+      yesBtn.style.transform = `scale(${newScale})`;
+
+      // Shrink & nudge the "No" button playfully
+      const noScale = Math.max(1 - noClickCount * 0.1, 0.55);
+      const randomX = (Math.random() - 0.5) * 36;
+      const randomY = (Math.random() - 0.5) * 18;
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${noScale})`;
+
+      if (noClickCount >= 5) {
+        noBtn.textContent = 'Accha baba, click Haan ❤️';
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      buttonsArea.classList.add('hidden');
+      pleadSubtext.classList.add('hidden');
+      celebrationBox.classList.remove('hidden');
+      launchCelebrationBurst(140);
+      setTimeout(() => launchCelebrationBurst(90), 450);
+    });
+
+    // 6. ONE-TAP COPY REPLY FOR HER (iFrame-safe execCommand fallback)
+    const copyReplyBtn = document.getElementById('copy-reply-btn');
+    const copyFeedback = document.getElementById('copy-feedback');
+
+    copyReplyBtn.addEventListener('click', () => {
+      const replyText = "Maaf kiya mere budhu! ❤️ Par ab jaldi se mere Kinder Joy aur chocolates leke aana! 🍫🥚😘";
+      const tempInput = document.createElement('textarea');
+      tempInput.value = replyText;
+      tempInput.setAttribute('readonly', '');
+      tempInput.style.position = 'absolute';
+      tempInput.style.left = '-9999px';
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        copyFeedback.classList.remove('hidden');
+        copyReplyBtn.textContent = 'Copied! Send it now ❤️';
+      } catch (err) {
+        copyFeedback.textContent = 'Message: ' + replyText;
+        copyFeedback.classList.remove('hidden');
+      }
+      document.body.removeChild(tempInput);
+    });
+  </script>
+</body>
+</html>
